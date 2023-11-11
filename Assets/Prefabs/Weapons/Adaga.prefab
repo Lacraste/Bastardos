@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3149983200477854228
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1451
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1265
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8255037
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.13222142
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.49811232
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.2300985
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -26.585
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 58.384
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 16.112
+      objectReference: {fileID: 0}
+    - target: {fileID: -4665462263555123436, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1530712c7e4b41249bc955ebda08ca62, type: 2}
+    - target: {fileID: 127166746191711046, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1530712c7e4b41249bc955ebda08ca62, type: 2}
+    - target: {fileID: 919132149155446097, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_Name
+      value: Adaga
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530312133835853865, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86a34762102b8d149a49c70418db1add, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -9218131682772440203, guid: 58150b219678327489c380a97f30ab17, type: 3}
+    - {fileID: -5539764629200458662, guid: 58150b219678327489c380a97f30ab17, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 58150b219678327489c380a97f30ab17,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 148601192813283654}
+  m_SourcePrefab: {fileID: 100100000, guid: 58150b219678327489c380a97f30ab17, type: 3}
+--- !u!1 &2843905353545090885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 58150b219678327489c380a97f30ab17,
+    type: 3}
+  m_PrefabInstance: {fileID: 3149983200477854228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &148601192813283654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843905353545090885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812ae9dccb4f53a40ba47e30f34c24e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmo: 0
+  actualAmmo: 0
+  raycastTarget: {fileID: 0}
+  weaponName: dagger
+  slot: 0
