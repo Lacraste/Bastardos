@@ -131,6 +131,7 @@ public class ActiveWeapon : MonoBehaviour
         var weapon = GetWeapon(index);
         if (weapon)
         {
+            weapon.equipSound();
             ammoWidget.RefreshAmmo(weapon.actualAmmo, weapon.holsterAmmo);
             ammoWidget.SetIconWeapon(weapon.weaponName, weapon.recoil != null);
             rigController.SetBool("holster_weapon", false);

@@ -5,6 +5,12 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class MeleeWeapon : Weapon
 {
+    public AudioClip hitSFX;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public override void AddAmmo(int ammo)
     {
         throw new System.NotImplementedException();
@@ -12,6 +18,7 @@ public class MeleeWeapon : Weapon
 
     public override void StartAttack()
     {
+        //audioSource.PlayOneShot(RandomAudioClip(attackSFX));
         isFiring = true;
     }
 
@@ -30,6 +37,16 @@ public class MeleeWeapon : Weapon
         if (collision.transform.tag == "Enemy")
         {
             collision.gameObject.GetComponent<HitBox>().OnHit(15, collision.ClosestPoint(transform.position));
+            audioSource.PlayOneShot(hitSFX);
         }
+    }
+    public AudioClip RandomAudioClip(AudioClip[] clips)
+    {
+        return clips[Random.Range(0, clips.Length)];
+    }
+
+    public override void equipSound()
+    {
+        audioSource.PlayOneShot(equipSFX);
     }
 }

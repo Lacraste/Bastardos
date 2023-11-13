@@ -37,9 +37,11 @@ public class RaycastWeapon : Weapon
 
     public GameObject magazine;
 
+    public AudioClip reloadSFX;
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
+        audioSource = GetComponent<AudioSource>();
     }
     Vector3 GetPosition(Bullet bullet)
     {
@@ -144,6 +146,7 @@ public class RaycastWeapon : Weapon
         actualAmmo--;
         shotFlash.Play();
 
+        audioSource.PlayOneShot(RandomAudioClip(attackSFX));
         Vector3 velocity = (raycastTarget.position - raycastOrigin.position).normalized * weapon.bulletSpeed;
         var bullet = CreateBullet(raycastOrigin.position, velocity);
 
@@ -179,5 +182,17 @@ public class RaycastWeapon : Weapon
     {
         isReloading = reloading;
     }
+    public bool GetIsReloading()
+    {
+        return isReloading;
+    }
+    public AudioClip RandomAudioClip(AudioClip[] clips)
+    {
+        return clips[Random.Range(0, clips.Length)];
+    }
 
+    public override void equipSound()
+    {
+
+    }
 }

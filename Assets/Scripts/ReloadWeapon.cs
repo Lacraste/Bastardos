@@ -31,9 +31,10 @@ public class ReloadWeapon : MonoBehaviour
     }
     void ReloadAnimation()
     {
-        if (weapon.holsterAmmo == 0) return;
+        if (weapon.holsterAmmo == 0 || weapon.GetIsReloading()) return;
         rigController.SetTrigger("reload");
         weapon.SetIsReloading(true);
+        weapon.audioSource.PlayOneShot(weapon.reloadSFX);
     }
     void OnAnimationEvent(string eventName)
     {
