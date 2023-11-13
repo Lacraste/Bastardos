@@ -5,8 +5,6 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class MeleeWeapon : Weapon
 {
-    public AudioClip hitSFX;
-
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -37,7 +35,7 @@ public class MeleeWeapon : Weapon
         if (collision.transform.tag == "Enemy")
         {
             collision.gameObject.GetComponent<HitBox>().OnHit(15, collision.ClosestPoint(transform.position));
-            audioSource.PlayOneShot(hitSFX);
+            audioSource.PlayOneShot(RandomAudioClip(sfxConfig.hit));
         }
     }
     public AudioClip RandomAudioClip(AudioClip[] clips)
@@ -47,6 +45,6 @@ public class MeleeWeapon : Weapon
 
     public override void equipSound()
     {
-        audioSource.PlayOneShot(equipSFX);
+        audioSource.PlayOneShot(sfxConfig.equip);
     }
 }

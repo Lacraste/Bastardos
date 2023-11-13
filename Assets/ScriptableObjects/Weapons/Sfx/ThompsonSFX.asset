@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0e93cb8e154a74db0323d857d71202, type: 3}
+  m_Name: ThompsonSFX
+  m_EditorClassIdentifier: 
+  fire:
+  - {fileID: 8300000, guid: 851980f769098df4294d85923307218e, type: 3}
+  - {fileID: 8300000, guid: 1474d3ac5316cb94e8b76da7702b1ae3, type: 3}
+  - {fileID: 8300000, guid: 2c2ebf818b027c54e83a473425c4625c, type: 3}
+  - {fileID: 8300000, guid: a4ecd91a475ec4741bb07d2238c25b09, type: 3}
+  hit: []
+  reload: {fileID: 8300000, guid: 94863627dfa387344a7f5820c504098d, type: 3}
+  equip: {fileID: 0}

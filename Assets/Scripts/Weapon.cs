@@ -9,13 +9,13 @@ public abstract class Weapon:MonoBehaviour
     public int holsterAmmo;
     public bool isFiring;
     public Transform raycastTarget;
+    public WeaponSFXSO sfxConfig;
+
     public WeaponName weaponName;
     public ActiveWeapon.WeaponSlot slot;
 
 
     public AudioSource audioSource;
-    public AudioClip[] attackSFX;
-    public AudioClip equipSFX;
     public WeaponRecoil recoil;
     public abstract void StartAttack();
     public abstract void StopAttack();

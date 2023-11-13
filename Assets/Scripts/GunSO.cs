@@ -11,6 +11,5 @@ public class GunSO : ScriptableObject
     public float bulletSpeed;
     public float bulletDrop;
     public ParticleSystem hitEffect;
-    public TrailRenderer shotTrail; 
-
+    public TrailRenderer shotTrail;
 }

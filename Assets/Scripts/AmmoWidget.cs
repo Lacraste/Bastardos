@@ -9,6 +9,7 @@ using UnityEngine;
 public enum WeaponName
 {
     thompson,
+    mp40,
     knife,
     pistol,
     dagger,
