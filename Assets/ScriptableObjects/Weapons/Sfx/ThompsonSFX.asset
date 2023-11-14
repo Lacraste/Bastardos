@@ -13,10 +13,26 @@ MonoBehaviour:
   m_Name: ThompsonSFX
   m_EditorClassIdentifier: 
   fire:
-  - {fileID: 8300000, guid: 851980f769098df4294d85923307218e, type: 3}
-  - {fileID: 8300000, guid: 1474d3ac5316cb94e8b76da7702b1ae3, type: 3}
-  - {fileID: 8300000, guid: 2c2ebf818b027c54e83a473425c4625c, type: 3}
-  - {fileID: 8300000, guid: a4ecd91a475ec4741bb07d2238c25b09, type: 3}
-  hit: []
+  - {fileID: 8300000, guid: d6d84e2f62fcd77438ae16e544b0fba2, type: 3}
+  - {fileID: 8300000, guid: a6414ddea94bf37419f5c3d567b00cc4, type: 3}
+  - {fileID: 8300000, guid: 24b28504da94f824f8269a09ba25a7a6, type: 3}
+  - {fileID: 8300000, guid: 4e9578cca5be9bd49adf8ded63d26f1d, type: 3}
+  hit:
+  - {fileID: 8300000, guid: 9fb1878d127b99d438b5d7c6933b3dcd, type: 3}
+  - {fileID: 8300000, guid: 128c300fc0bdffd4eafdd72e451b9a0f, type: 3}
+  - {fileID: 8300000, guid: aed7c0e3db102aa45b3eac96ab6dc565, type: 3}
+  - {fileID: 8300000, guid: c981a806523c7824e9aa7657e7e89e5f, type: 3}
+  - {fileID: 8300000, guid: 3d9a0e86c268a7744a4bab0261782ee6, type: 3}
+  - {fileID: 8300000, guid: 5568cc7ad8409d045afed5e339ba3f68, type: 3}
+  - {fileID: 8300000, guid: 2eab290d46e8bff41873e6b6172bd837, type: 3}
+  - {fileID: 8300000, guid: 775278ee74bf44042a592c87f632c486, type: 3}
+  - {fileID: 8300000, guid: 68222bbaeafef794386c8122065a6f6b, type: 3}
+  - {fileID: 8300000, guid: b7649a0b8317b6d4689ab65583b56af0, type: 3}
+  - {fileID: 8300000, guid: ae97521a8b368ea42a25ce9c5108a869, type: 3}
+  - {fileID: 8300000, guid: 0b9c2182334687942b2be8908f307c1b, type: 3}
+  - {fileID: 8300000, guid: c11d52e5f5322754cbfd20443c0ca6f6, type: 3}
+  - {fileID: 8300000, guid: 51e9e6be499bb224db5073f215220212, type: 3}
+  - {fileID: 8300000, guid: 79de4859db2fbfa44ad252014c3ba5d2, type: 3}
+  - {fileID: 8300000, guid: f1c208f13c29b0846b9dcd8baddd4826, type: 3}
   reload: {fileID: 8300000, guid: 94863627dfa387344a7f5820c504098d, type: 3}
   equip: {fileID: 0}

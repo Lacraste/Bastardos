@@ -7,10 +7,10 @@ public class AiWeapons : MonoBehaviour
 {
     Weapon currentWeapon;
     public Animator rigAnimator;
-    MeshSockets sockets;
+    public Transform targetObject;
+    public Vector3 targetOffset;
     private void Start()
     {
-        sockets = GetComponent<MeshSockets>(); 
         Weapon existingWeapon = GetComponentInChildren<Weapon>();
         if (existingWeapon != null)
         {
@@ -20,7 +20,22 @@ public class AiWeapons : MonoBehaviour
     public void Equip(Weapon weapon)
     {
         currentWeapon = weapon;
-        //sockets.Attach(weapon.transform, MeshSockets.SocketID.Spine);
         rigAnimator.Play("equip_" + weapon.weaponName.ToString());
+    }
+    public void SetTargetPosition(Vector3 pos)
+    {
+        targetObject.position = pos+ targetOffset;
+    }
+
+  
+    public void DropWeapon()
+    {
+        if (currentWeapon)
+        {
+            currentWeapon.transform.SetParent(null);
+            currentWeapon.gameObject.GetComponent<BoxCollider>().enabled = true;
+            currentWeapon.gameObject.AddComponent<Rigidbody>();
+            currentWeapon = null;
+        }
     }
 }

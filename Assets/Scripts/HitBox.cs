@@ -7,6 +7,7 @@ public class HitBox : MonoBehaviour
 {
     public ParticleSystem blood;
     public Health health;
+  
     public void OnHit(RaycastWeapon weapon, Vector3 direction, Vector3 position, Vector3 forward)
     {
         health.TakeDamage(weapon.weapon.bulletDamage);
@@ -14,7 +15,7 @@ public class HitBox : MonoBehaviour
         blood.transform.forward = forward;
 
         blood.Play();
-
+        
         /*
         foreach (var particle in blood) 
         { 

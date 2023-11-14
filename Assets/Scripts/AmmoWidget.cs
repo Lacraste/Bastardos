@@ -6,14 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum WeaponName
-{
-    thompson,
-    mp40,
-    knife,
-    pistol,
-    dagger,
-}
 public class AmmoWidget : MonoBehaviour
 {
     public GameObject[] icons;

@@ -13,6 +13,7 @@ public class AiAgent : MonoBehaviour
     public Ragdoll ragdoll;
     public Transform player;
     public AiWeapons weapons;
+
     public void Start()
     {
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,6 +26,7 @@ public class AiAgent : MonoBehaviour
         stateMachine.RegisterState(new AiChasePlayerState());
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
+        stateMachine.RegisterState(new AiAttackPlayerState());
 
         stateMachine.ChangeState(initialState);
     }

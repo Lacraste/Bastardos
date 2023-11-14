@@ -8,6 +8,7 @@ public class AiDeathState : AiState
     {
         agent.ragdoll.ActivateRagdoll();
         agent.navMeshAgent.enabled = false;
+        agent.weapons.DropWeapon();
     }
 
     public void Exit(AiAgent agent)
@@ -23,13 +24,4 @@ public class AiDeathState : AiState
     {
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

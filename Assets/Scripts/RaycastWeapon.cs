@@ -37,10 +37,16 @@ public class RaycastWeapon : Weapon
 
     public GameObject magazine;
 
+    private HitMarker hitMarker;
+
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
         audioSource = GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        hitMarker = FindAnyObjectByType<HitMarker>();
     }
     Vector3 GetPosition(Bullet bullet)
     {
@@ -132,7 +138,12 @@ public class RaycastWeapon : Weapon
             var hitBox = hit.collider.GetComponent<HitBox>();
             if (hitBox)
             {
-                hitBox.OnHit(this, ray.direction, hit.point, hit.normal);
+                if (hitBox.health.GetHealth() >= 0)
+                {
+                    hitBox.OnHit(this, ray.direction, hit.point, hit.normal);
+                    audioSource.PlayOneShot(RandomAudioClip(sfxConfig.hit));
+                    hitMarker.Hit();
+                }
             }
             else
             {

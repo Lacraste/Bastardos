@@ -1,7 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum WeaponName
+{
+    thompson,
+    knife,
+    mp40,
+    pistol,
+    dagger,
+}
 public abstract class Weapon:MonoBehaviour
 {
     public int maxAmmo;
