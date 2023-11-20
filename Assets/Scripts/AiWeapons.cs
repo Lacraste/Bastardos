@@ -14,7 +14,24 @@ public class AiWeapons : MonoBehaviour
         Weapon existingWeapon = GetComponentInChildren<Weapon>();
         if (existingWeapon != null)
         {
-          Equip(existingWeapon);
+            Equip(existingWeapon);
+        }
+    }
+    private void Update()
+    {
+        if(targetObject && currentWeapon)
+        {
+            Vector3 target = targetObject.position + targetOffset;
+            currentWeapon.UpdateWeapon(Time.deltaTime,target);
+        }
+    }
+    public void SetFiring(bool fire)
+    {
+        Vector3 target = targetObject.position + targetOffset;
+        if (fire) currentWeapon.StartAttack(target);
+        else
+        {
+            currentWeapon.StopAttack();
         }
     }
     public void Equip(Weapon weapon)
@@ -24,7 +41,7 @@ public class AiWeapons : MonoBehaviour
     }
     public void SetTargetPosition(Vector3 pos)
     {
-        targetObject.position = pos+ targetOffset;
+        targetObject.position = pos + targetOffset;
     }
 
   

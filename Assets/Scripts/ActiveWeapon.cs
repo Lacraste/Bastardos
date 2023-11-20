@@ -51,14 +51,11 @@ public class ActiveWeapon : MonoBehaviour
         var weapon = GetWeapon(activeWeaponIndex);
         if (weapon != null && !isHolstered)
         {
+            weapon.UpdateWeapon(Time.deltaTime,crossHairTarget.position);
             if (_input.shoot && btPressed == false)
             {
-                weapon.StartAttack();
+                weapon.StartAttack(crossHairTarget.position);
                 btPressed = true;
-            }
-            if (_input.shoot)
-            {
-                weapon.UpdateAttack(Time.deltaTime);
             }
             else if (!_input.shoot && btPressed == true)
             {
@@ -84,7 +81,6 @@ public class ActiveWeapon : MonoBehaviour
         }
         weapon = newWeapon;
         weapon.actualAmmo = newWeapon.maxAmmo;
-        weapon.raycastTarget = crossHairTarget;
         if (weapon.recoil != null)
         {
             weapon.recoil.playerCam = GetComponent<PlayerController>();

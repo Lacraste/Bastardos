@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AiIdleState : AiState
 {
+    Health health;
     public void Enter(AiAgent agent)
     {
+        health = agent.GetComponent<Health>();
     }
 
     public void Exit(AiAgent agent)
@@ -27,10 +29,15 @@ public class AiIdleState : AiState
         Vector3 agentDirection = agent.transform.forward;
         playerDirection.Normalize();
         float dotproduct = Vector3.Dot(playerDirection, agentDirection);
-        if(dotproduct > 0)
+        if(dotproduct > 0 )
         {
-            agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
+            agent.stateMachine.ChangeState(AiStateId.AttackPlayer);
         }
+        if (health.GetHealth() < health.maxHealth)
+        {
+            agent.stateMachine.ChangeState(AiStateId.AttackPlayer);
+        }
+
     }
   
 }

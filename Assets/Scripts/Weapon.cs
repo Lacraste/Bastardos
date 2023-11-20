@@ -15,7 +15,6 @@ public abstract class Weapon:MonoBehaviour
     public int actualAmmo;
     public int holsterAmmo;
     public bool isFiring;
-    public Transform raycastTarget;
     public WeaponSFXSO sfxConfig;
 
     public WeaponName weaponName;
@@ -24,9 +23,11 @@ public abstract class Weapon:MonoBehaviour
 
     public AudioSource audioSource;
     public WeaponRecoil recoil;
-    public abstract void StartAttack();
+    public abstract void StartAttack(Vector3 target);
     public abstract void StopAttack();
-    public abstract void UpdateAttack(float time);
+    public abstract void UpdateAttack(float time, Vector3 target);
+    public abstract void UpdateWeapon(float time,Vector3 target);
+
     public abstract void AddAmmo(int ammo);
     public abstract void equipSound();
 }

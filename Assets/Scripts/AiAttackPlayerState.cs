@@ -7,7 +7,8 @@ public class AiAttackPlayerState : AiState
 {
     public void Enter(AiAgent agent)
     {
-        agent.navMeshAgent.stoppingDistance = 7f;
+        agent.navMeshAgent.stoppingDistance = 15f;
+        agent.weapons.SetFiring(true);
     }
 
     public void Exit(AiAgent agent)
@@ -30,6 +31,6 @@ public class AiAttackPlayerState : AiState
         Quaternion lookRotation = Quaternion.LookRotation(lookDir);
 
         // Rotação apenas no eixo Y (vertical)
-        agent.transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f), 5 * Time.deltaTime);
     }
 }

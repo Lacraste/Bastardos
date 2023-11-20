@@ -65,28 +65,25 @@ public class RaycastWeapon : Weapon
 
         return bullet;
     }
-    public override void StartAttack()
+    public override void StartAttack(Vector3 target)
     {
         isFiring = true;
-        FireBullet();
+        FireBullet(target);
     }
-    public override void UpdateAttack(float deltatime)
+    public override void UpdateAttack(float deltatime, Vector3 target)
     {
         if (!weapon.automatic) return;
         accumulatedTime += deltatime;
         float fireInterval = 1.0f / weapon.fireRate;
         while (accumulatedTime >= 0.0f) 
         { 
-            FireBullet();
+            FireBullet(target);
             accumulatedTime -= fireInterval;
         }
 
     }
     private void Update()
     {
-        ray.origin = raycastOrigin.position;
-        ray.direction = raycastTarget.position - raycastOrigin.position;
-
         UpdateBullets(Time.deltaTime);
     }
     public void UpdateBullets(float deltatime)
@@ -151,17 +148,17 @@ public class RaycastWeapon : Weapon
             }
         }
     }
-    private void FireBullet()
+    private void FireBullet(Vector3 target)
     {if (actualAmmo <= 0 || isReloading) return;
         actualAmmo--;
         shotFlash.Play();
 
         audioSource.PlayOneShot(RandomAudioClip(sfxConfig.fire));
-        Vector3 velocity = (raycastTarget.position - raycastOrigin.position).normalized * weapon.bulletSpeed;
+        Vector3 velocity = (target - raycastOrigin.position).normalized * weapon.bulletSpeed;
         var bullet = CreateBullet(raycastOrigin.position, velocity);
 
         bullets.Add(bullet);
-        recoil.GenerateRecoil(weaponName.ToString());
+        if(recoil)recoil.GenerateRecoil(weaponName.ToString());
     }
 
     public override void StopAttack ()
@@ -204,5 +201,12 @@ public class RaycastWeapon : Weapon
     public override void equipSound()
     {
 
+    }
+
+    public override void UpdateWeapon(float time, Vector3 target)
+    {
+        ray.origin = raycastOrigin.position;
+        ray.direction = target - raycastOrigin.position;
+        if (isFiring) UpdateAttack(time,target);
     }
 }

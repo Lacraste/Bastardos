@@ -11,10 +11,9 @@ public class MeleeWeapon : Weapon
     }
     public override void AddAmmo(int ammo)
     {
-        throw new System.NotImplementedException();
     }
 
-    public override void StartAttack()
+    public override void StartAttack(Vector3 target)
     {
         //audioSource.PlayOneShot(RandomAudioClip(attackSFX));
         isFiring = true;
@@ -23,9 +22,9 @@ public class MeleeWeapon : Weapon
     public override void StopAttack()
     {
         isFiring = false;
-        UpdateAttack(Time.deltaTime);
+        UpdateAttack(Time.deltaTime, Vector3.zero);
     }
-    public override void UpdateAttack(float time)
+    public override void UpdateAttack(float time, Vector3 target)
     {
         GetComponentInParent<Animator>().SetBool("Attack", isFiring);
     }
@@ -46,5 +45,10 @@ public class MeleeWeapon : Weapon
     public override void equipSound()
     {
         audioSource.PlayOneShot(sfxConfig.equip);
+    }
+
+    public override void UpdateWeapon(float time, Vector3 target)
+    {
+        if(isFiring)UpdateAttack(time, target);
     }
 }
