@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
         {
             HitBox hitBox = rigidBody.gameObject.AddComponent<HitBox>();
             hitBox.health = this;
+            hitBox.bodyPart = (BodyPart)System.Enum.Parse(typeof(BodyPart), hitBox.gameObject.tag);
             hitBox.blood = GetComponent<HitBox>().blood;
         }
     }
@@ -40,5 +41,16 @@ public class Health : MonoBehaviour
     {
         agent.stateMachine.ChangeState(AiStateId.Death);
     }
+    protected virtual void OnStart()
+    {
 
+    }
+    protected virtual void OnDeath()
+    {
+
+    }
+    protected virtual void OnDamage()
+    {
+        ,
+    }
 }

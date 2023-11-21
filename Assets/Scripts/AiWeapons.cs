@@ -9,6 +9,8 @@ public class AiWeapons : MonoBehaviour
     public Animator rigAnimator;
     public Transform targetObject;
     public Vector3 targetOffset;
+
+    public float inaccuracy = 0.1f;
     private void Start()
     {
         Weapon existingWeapon = GetComponentInChildren<Weapon>();
@@ -22,6 +24,7 @@ public class AiWeapons : MonoBehaviour
         if(targetObject && currentWeapon)
         {
             Vector3 target = targetObject.position + targetOffset;
+            target += Random.insideUnitSphere * inaccuracy;
             currentWeapon.UpdateWeapon(Time.deltaTime,target);
         }
     }

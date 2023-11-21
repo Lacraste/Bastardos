@@ -8,6 +8,9 @@ TagManager:
   - Target
   - FxTemporaire
   - Enemy
+  - Members
+  - Chest
+  - Head
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Hitbox
   - 
   - 
   - 

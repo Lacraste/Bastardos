@@ -39,6 +39,8 @@ public class RaycastWeapon : Weapon
 
     private HitMarker hitMarker;
 
+    public LayerMask layermask;
+
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
@@ -59,7 +61,6 @@ public class RaycastWeapon : Weapon
         bullet.initialPosition = position;
         bullet.initialVelocity = velocity;
         bullet.time = 0.0f;
-        bullet.hitEffect = Instantiate(weapon.hitEffect, position, Quaternion.identity);
         bullet.tracer = Instantiate(weapon.shotTrail, position, Quaternion.identity);
         bullet.tracer.AddPosition(position);
 
@@ -113,11 +114,10 @@ public class RaycastWeapon : Weapon
         float distance = direction.magnitude;
         ray.origin = start;
         ray.direction = direction;
-
-        if (Physics.Raycast(ray, out hit, distance))
+        bullet.tracer.transform.position = end;
+        if (Physics.Raycast(ray, out hit, distance, layermask))
         {
-            bullet.hitEffect.transform.forward = hit.normal;
-            bullet.hitEffect.transform.position = hit.point;
+          
 
             bullet.time = maxLifeTime;
 
@@ -144,6 +144,9 @@ public class RaycastWeapon : Weapon
             }
             else
             {
+                bullet.hitEffect = Instantiate(weapon.hitEffect);
+                bullet.hitEffect.transform.forward = hit.normal;
+                bullet.hitEffect.transform.position = hit.point;
                 bullet.hitEffect.Play();
             }
         }
@@ -202,7 +205,7 @@ public class RaycastWeapon : Weapon
     {
 
     }
-
+    
     public override void UpdateWeapon(float time, Vector3 target)
     {
         ray.origin = raycastOrigin.position;

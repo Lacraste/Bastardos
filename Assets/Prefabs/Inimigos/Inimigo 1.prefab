@@ -10630,7 +10630,7 @@ Transform:
   m_GameObject: {fileID: 1495231681334017685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00018310547, y: -0.95748365, z: -0.108996704}
+  m_LocalPosition: {x: -0.00018310547, y: -0.8917836, z: -0.105996706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10799,7 +10799,7 @@ GameObject:
   - component: {fileID: 7746321098929053181}
   m_Layer: 0
   m_Name: root_jnt
-  m_TagString: Enemy
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10840,8 +10840,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15696996, y: 0.43653148, z: 0.26084378}
-  m_Center: {x: 0.07848498, y: 0.021524519, z: 0.031621553}
+  m_Size: {x: 0.15696995, y: 0.23053147, z: 0.20287782}
+  m_Center: {x: 0.08, y: 0, z: 0}
 --- !u!54 &7746321098929053181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10981,7 +10981,7 @@ GameObject:
   - component: {fileID: 853318877224413639}
   m_Layer: 0
   m_Name: knee_R_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11022,9 +11022,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
-  m_Height: 0.45
+  m_Height: 0.5
   m_Direction: 0
-  m_Center: {x: 0.22, y: 0, z: 0}
+  m_Center: {x: 0.2, y: 0, z: 0}
 --- !u!54 &7157296015468956218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11066,27 +11066,27 @@ CharacterJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.29632318, y: -0.008516878, z: 0.0000060759485}
   serializedVersion: 2
-  m_SwingAxis: {x: 0, y: 1, z: 0}
+  m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -45
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 45
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 0
+    limit: 75.9
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_EnableProjection: 0
@@ -21011,6 +21011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 8312882361274014190}
   health: {fileID: 0}
+  bodyPart: 0
 --- !u!114 &801950919608849620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21023,7 +21024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77a942f86b106f4da5e14c063bbb65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
 --- !u!114 &3867552167254482485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21124,7 +21125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigAnimator: {fileID: 7841323276703416527}
   targetObject: {fileID: 4445902253779640366}
-  targetOffset: {x: 0, y: 1.3, z: 0}
+  targetOffset: {x: 0, y: 0.7, z: 0}
+  inaccuracy: 1
 --- !u!114 &1871644589766256404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21207,7 +21209,7 @@ GameObject:
   - component: {fileID: 2954970943123621652}
   m_Layer: 0
   m_Name: spine_02_jnt
-  m_TagString: Enemy
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21931,7 +21933,7 @@ GameObject:
   - component: {fileID: 7645664284152980130}
   m_Layer: 0
   m_Name: hip_R_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21971,7 +21973,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08889698
+  m_Radius: 0.05
   m_Height: 0.29632327
   m_Direction: 0
   m_Center: {x: 0.14816163, y: 0, z: 0}
@@ -22235,7 +22237,7 @@ Transform:
   m_GameObject: {fileID: 4300933567859956732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00018310547, y: -0.95748365, z: -0.108996704}
+  m_LocalPosition: {x: -0.00018310547, y: -0.8917836, z: -0.105996706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22255,7 +22257,7 @@ GameObject:
   - component: {fileID: 3613030886542509451}
   m_Layer: 0
   m_Name: knee_L_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22296,7 +22298,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
-  m_Height: 0.45
+  m_Height: 0.5
   m_Direction: 0
   m_Center: {x: -0.2, y: 0, z: 0}
 --- !u!54 &8207775820693243382
@@ -22336,27 +22338,27 @@ CharacterJoint:
   m_ConnectedBody: {fileID: 2615674639000831212}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: -0.2963237, y: 0.008516878, z: -0.0000031618401}
   serializedVersion: 2
-  m_SwingAxis: {x: 0, y: -1, z: 0}
+  m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -45
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 45
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 0
+    limit: 75.9
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -22449,7 +22451,7 @@ GameObject:
   - component: {fileID: 8420096426664555129}
   m_Layer: 0
   m_Name: neck_01_jnt
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22591,13 +22593,13 @@ Transform:
   m_GameObject: {fileID: 5068422640641016903}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.192, z: 0.103}
+  m_LocalPosition: {x: 0, y: 1.1263, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7277733928090332324}
-  - {fileID: 7992373009756209839}
   - {fileID: 5795947538551308811}
+  - {fileID: 7992373009756209839}
+  - {fileID: 7277733928090332324}
   m_Father: {fileID: 1623413919500977587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5152138794456488977
@@ -22678,7 +22680,7 @@ GameObject:
   - component: {fileID: 240868687302960260}
   m_Layer: 0
   m_Name: hip_L_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22718,7 +22720,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.088897206
+  m_Radius: 0.05
   m_Height: 0.296324
   m_Direction: 0
   m_Center: {x: -0.148162, y: 0, z: 0}
@@ -22934,7 +22936,7 @@ GameObject:
   - component: {fileID: 8767625481637668274}
   m_Layer: 0
   m_Name: shoulder_L_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22974,7 +22976,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0809576
+  m_Radius: 0.05
   m_Height: 0.3238304
   m_Direction: 0
   m_Center: {x: -0.1619152, y: 0, z: 0}
@@ -23095,6 +23097,7 @@ GameObject:
   - component: {fileID: 2984515383916110761}
   - component: {fileID: 4490670889868678891}
   - component: {fileID: 5319707146848831631}
+  - component: {fileID: 5308531597014495858}
   m_Layer: 0
   m_Name: Pose
   m_TagString: Untagged
@@ -23269,6 +23272,53 @@ MonoBehaviour:
       z: 1
     m_MaintainPositionOffset: 0
     m_MaintainRotationOffset: 0
+--- !u!114 &5308531597014495858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152449004141167610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb90b913935e644baaa86c076d788e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 7881523078974315146}
+    m_SourceObjects:
+      m_Length: 1
+      m_Item0:
+        transform: {fileID: 4445902253779640366}
+        weight: 1
+      m_Item1:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item2:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item3:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item4:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item5:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item6:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item7:
+        transform: {fileID: 0}
+        weight: 0
+    m_Offset: {x: 0, y: 0, z: 0}
+    m_ConstrainedAxes:
+      x: 0
+      y: 0
+      z: 1
+    m_MaintainOffset: 0
 --- !u!1 &6435677949358572034
 GameObject:
   m_ObjectHideFlags: 0
@@ -28394,7 +28444,7 @@ GameObject:
   - component: {fileID: 6112067519651546798}
   m_Layer: 0
   m_Name: head_01_jnt
-  m_TagString: Enemy
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28666,7 +28716,7 @@ Transform:
   m_GameObject: {fileID: 7353683450349878808}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000020861624, y: 0.7071068, z: 7.1054274e-15, w: 0.7071068}
-  m_LocalPosition: {x: -0.00018310547, y: -0.091, z: 0.4666}
+  m_LocalPosition: {x: -0.00018310547, y: -0.025299907, z: 0.46960297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28701,6 +28751,9 @@ MonoBehaviour:
   shotFlash: {fileID: 1494096419900532870}
   raycastOrigin: {fileID: 1731074188155158915}
   magazine: {fileID: 7089771153011284186}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!82 &1531307053054312806
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28844,7 +28897,7 @@ GameObject:
   - component: {fileID: 5676373394627482307}
   m_Layer: 0
   m_Name: elbow_R_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29254,7 +29307,7 @@ GameObject:
   - component: {fileID: 807015848196401420}
   m_Layer: 0
   m_Name: elbow_L_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29416,7 +29469,7 @@ GameObject:
   - component: {fileID: 7090075288850177133}
   m_Layer: 0
   m_Name: shoulder_R_01_jnt
-  m_TagString: Enemy
+  m_TagString: Members
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29456,7 +29509,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08095881
+  m_Radius: 0.05
   m_Height: 0.32383525
   m_Direction: 0
   m_Center: {x: 0.16191763, y: 0, z: 0}
