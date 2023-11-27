@@ -40,7 +40,7 @@ public class ActiveWeapon : MonoBehaviour
         StartCoroutine(ActivateWeapon((int)WeaponSlot.Primary));
         //SetActiveWeapon((int)WeaponSlot.Primary);
     }
-    Weapon GetWeapon(int index)
+    public Weapon GetWeapon(int index)
     {
         if ( index < 0 || index>= weapons.Length) return null;
         return weapons[index];
@@ -78,6 +78,9 @@ public class ActiveWeapon : MonoBehaviour
         var weapon = GetWeapon(weaponSlotIndex);
         if (weapon){
             Destroy(weapon.gameObject);
+            SetActiveWeapon(newWeapon.slot);
+            rigController.Play("equip_" + newWeapon.weaponName.ToString());
+            newWeapon.holsterAmmo = weapon.holsterAmmo;
         }
         weapon = newWeapon;
         weapon.actualAmmo = newWeapon.maxAmmo;
@@ -86,8 +89,10 @@ public class ActiveWeapon : MonoBehaviour
             weapon.recoil.playerCam = GetComponent<PlayerController>();
             weapon.recoil.rigController = rigController;
         }
+        ammoWidget.RefreshAmmo(weapon.actualAmmo, weapon.holsterAmmo);
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex], false);
         weapons[weaponSlotIndex] = weapon;
+       
     }
     void SetActiveWeapon(WeaponSlot weaponSlotIndex)
     {
@@ -125,6 +130,7 @@ public class ActiveWeapon : MonoBehaviour
     IEnumerator ActivateWeapon(int index)
     {
         var weapon = GetWeapon(index);
+
         if (weapon)
         {
             weapon.equipSound();

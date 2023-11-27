@@ -27,4 +27,16 @@ public class PlayerHealth : Health
         if (maxHealth == currentHealth) bloodVignette.color = new Color(color.r, color.g, color.b, 0);
         lifeIcon.SetTrigger("Damage");
     }
+    public void Heal(int heal)
+    {
+        if(currentHealth + heal< maxHealth) currentHealth += heal;
+        else
+        {
+            currentHealth = maxHealth;
+        }
+        lifeText.text = currentHealth.ToString();
+        var color = bloodVignette.color;
+        bloodVignette.color = new Color(color.r, color.g, color.b, (maxHealth / currentHealth) * 0.1f);
+        if (maxHealth == currentHealth) bloodVignette.color = new Color(color.r, color.g, color.b, 0);
+    }
 }

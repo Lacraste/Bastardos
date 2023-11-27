@@ -47,9 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmmo: 0
   actualAmmo: 0
-  raycastTarget: {fileID: 0}
-  weaponName: knife
+  holsterAmmo: 0
+  isFiring: 0
+  sfxConfig: {fileID: 0}
+  weaponName: 0
   slot: 1
+  audioSource: {fileID: 0}
+  recoil: {fileID: 0}
 --- !u!1 &2762223209337089170
 GameObject:
   m_ObjectHideFlags: 0

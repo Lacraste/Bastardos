@@ -48,7 +48,6 @@ public class PauseManager : MonoBehaviour
     }
     public void ShowInteract(bool value)
     {
-        Debug.Log("Teste" + value);
         interactionButton.SetActive(value);
     }
 }

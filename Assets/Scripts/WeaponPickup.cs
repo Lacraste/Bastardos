@@ -1,25 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class WeaponPickup : MonoBehaviour
+public class WeaponPickup : Interectable
 {
-    public Weapon prefab;
-    //public GameObject activeHud;
-    //public GameObject deactivateHud1, deactivateHud2;
-    public Vector3 pos;
-
-    private void OnTriggerEnter(Collider other)
+    public Weapon curentWeapon;
+    public Weapon[] prefabs;
+    bool find;
+    private void Start()
     {
-        ActiveWeapon activeWeapon = other.gameObject.GetComponent<ActiveWeapon>();
+        find = false;
+        SetCurrentWeapon();
+    }
+
+    public override void Interact()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        ActiveWeapon activeWeapon = player.GetComponent<ActiveWeapon>();
         if (activeWeapon)
         {
-           /* activeHud.SetActive(true);
-            deactivateHud1.SetActive(false);
-            deactivateHud2.SetActive(false);*/
-            Weapon newWeapon = Instantiate(prefab,activeWeapon.weaponSlots[(int)prefab.slot]);
+            
+            //Destroy(prefab.gameObject);
+            Weapon newWeapon = Instantiate(curentWeapon, activeWeapon.weaponSlots[(int)curentWeapon.slot]);
+            find = false;
+            foreach (var weapon in prefabs) 
+            {
+                if (activeWeapon.GetWeapon((int)curentWeapon.slot) == weapon)
+                {
+                    curentWeapon = weapon;
+                    find = true;
+                }
+            }
 
             activeWeapon.Equip(newWeapon);
+            if (!find) Destroy(gameObject);
+            else
+            {
+                SetCurrentWeapon();
+            }
+
         }
     }
+    void SetCurrentWeapon()
+    {
+        if (GetComponent<BoxCollider>()) Destroy(GetComponent<BoxCollider>());
+        GetComponent<MeshRenderer>().materials = curentWeapon.GetComponent<MeshRenderer>().materials;
+        GetComponent<MeshFilter>().mesh = curentWeapon.GetComponent<MeshFilter>().mesh;
+
+        gameObject.AddComponent<BoxCollider>();
+    }
+
 }
