@@ -41,7 +41,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425612167654668210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d162139212f52794eb3bf22ca703cef7, type: 2}
   m_CullingMode: 0
@@ -128,7 +128,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3725960620036122377, guid: 899bcc97a53f6eb47ad4ae42d0111b3b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3530240608896101076}
+      addedObject: {fileID: 3948139968486441031}
+    - targetCorrespondingSourceObject: {fileID: 3725960620036122377, guid: 899bcc97a53f6eb47ad4ae42d0111b3b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3791351171643836491}
   m_SourcePrefab: {fileID: 100100000, guid: 899bcc97a53f6eb47ad4ae42d0111b3b, type: 3}
 --- !u!1 &2623843525600341979 stripped
 GameObject:
@@ -149,7 +153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoAmount: 30
---- !u!65 &3530240608896101076
+--- !u!114 &3948139968486441031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623843525600341979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ea022b8efa3ff479803eb9af7077d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3791351171643836491
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,11 +180,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.076818, y: 0.8, z: 1.0846312}
+  m_Size: {x: 0.24779919, y: 0.275749, z: 0.41020596}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3396298391140808033 stripped
 Transform:

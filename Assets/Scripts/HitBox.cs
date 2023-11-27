@@ -19,6 +19,7 @@ public class HitBox : MonoBehaviour
     {
         var damage = ((int)bodyPart +1) * weapon.weapon.bulletDamage;
         health.TakeDamage(damage);
+        if (!blood) return;
         blood.transform.position = position;
         blood.transform.forward = forward;
 

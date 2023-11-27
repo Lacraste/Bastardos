@@ -6,24 +6,13 @@ public class Health : MonoBehaviour
 {
     public float maxHealth = 50;
 
-    private float currentHealth;
-    Ragdoll ragdoll;
-    AiAgent agent;
+    public float currentHealth;
+   
 
     private void Start()
     {
-        agent = GetComponent<AiAgent>();
-        ragdoll = GetComponent<Ragdoll>();
         currentHealth = maxHealth;
-
-        var rigidBodies = GetComponentsInChildren<Rigidbody>();
-        foreach (var rigidBody in rigidBodies)
-        {
-            HitBox hitBox = rigidBody.gameObject.AddComponent<HitBox>();
-            hitBox.health = this;
-            hitBox.bodyPart = (BodyPart)System.Enum.Parse(typeof(BodyPart), hitBox.gameObject.tag);
-            hitBox.blood = GetComponent<HitBox>().blood;
-        }
+        OnStart();
     }
     public float GetHealth()
     {
@@ -31,6 +20,7 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        OnDamage();
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -39,7 +29,7 @@ public class Health : MonoBehaviour
     }
     public void Die()
     {
-        agent.stateMachine.ChangeState(AiStateId.Death);
+        OnDeath();
     }
     protected virtual void OnStart()
     {
@@ -51,6 +41,5 @@ public class Health : MonoBehaviour
     }
     protected virtual void OnDamage()
     {
-        ,
     }
 }

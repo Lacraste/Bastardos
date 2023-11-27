@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
 {
     public GameObject pauseObject;
     bool paused = false;
+    public GameObject interactionButton;
     void Start()
     {
         
@@ -37,5 +38,17 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         paused = false;
         pauseObject.SetActive(false);
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        paused=true;
+
+        pauseObject.SetActive(true);
+    }
+    public void ShowInteract(bool value)
+    {
+        Debug.Log("Teste" + value);
+        interactionButton.SetActive(value);
     }
 }

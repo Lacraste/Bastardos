@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiHealth : MonoBehaviour
+public class AiHealth : Health
 {
-    // Start is called before the first frame update
-    void Start()
+    Ragdoll ragdoll;
+    AiAgent agent;
+    protected override void OnStart()
     {
-        
-    }
+        agent = GetComponent<AiAgent>();
+        ragdoll = GetComponent<Ragdoll>();
 
-    // Update is called once per frame
-    void Update()
+        var rigidBodies = GetComponentsInChildren<Rigidbody>();
+        foreach (var rigidBody in rigidBodies)
+        {
+            HitBox hitBox = rigidBody.gameObject.AddComponent<HitBox>();
+            hitBox.health = this;
+            hitBox.bodyPart = (BodyPart)System.Enum.Parse(typeof(BodyPart), hitBox.gameObject.tag);
+            hitBox.blood = GetComponent<HitBox>().blood;
+        }
+    }
+    protected override void OnDeath()
     {
-        
+        agent.stateMachine.ChangeState(AiStateId.Death);
     }
 }
