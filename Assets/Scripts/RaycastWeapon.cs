@@ -69,16 +69,16 @@ public class RaycastWeapon : Weapon
     public override void StartAttack(Vector3 target, bool enemyFire = false)
     {
         isFiring = true;
-        FireBullet(target);
+        FireBullet(target, enemyFire);
     }
-    public override void UpdateAttack(float deltatime, Vector3 target)
+    public override void UpdateAttack(float deltatime, Vector3 target, bool enemyFire = false)
     {
         if (!weapon.automatic) return;
         accumulatedTime += deltatime;
         float fireInterval = 1.0f / weapon.fireRate;
         while (accumulatedTime >= 0.0f) 
         { 
-            FireBullet(target);
+            FireBullet(target, enemyFire);
             accumulatedTime -= fireInterval;
         }
 
@@ -207,10 +207,10 @@ public class RaycastWeapon : Weapon
 
     }
     
-    public override void UpdateWeapon(float time, Vector3 target)
+    public override void UpdateWeapon(float time, Vector3 target, bool enemyFire = false)
     {
         ray.origin = raycastOrigin.position;
         ray.direction = target - raycastOrigin.position;
-        if (isFiring) UpdateAttack(time,target);
+        if (isFiring) UpdateAttack(time,target, enemyFire);
     }
 }

@@ -27,7 +27,7 @@ public class AiWeapons : MonoBehaviour
             Vector3 target = targetObject.position;
             target += Random.insideUnitSphere * inaccuracy;
             //target += Random.insideUnitSphere * inaccuracy;
-            currentWeapon.UpdateWeapon(Time.deltaTime,target);
+            currentWeapon.UpdateWeapon(Time.deltaTime,target, true);
         }
     }
     public void SetFiring(bool fire)

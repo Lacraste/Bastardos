@@ -23,7 +23,7 @@ public class MeleeWeapon : Weapon
         isFiring = false;
         UpdateAttack(Time.deltaTime, Vector3.zero);
     }
-    public override void UpdateAttack(float time, Vector3 target)
+    public override void UpdateAttack(float time, Vector3 target, bool enemyFire = false)
     {
         GetComponentInParent<Animator>().SetBool("Attack", isFiring);
     }
@@ -46,7 +46,7 @@ public class MeleeWeapon : Weapon
         audioSource.PlayOneShot(sfxConfig.equip);
     }
 
-    public override void UpdateWeapon(float time, Vector3 target)
+    public override void UpdateWeapon(float time, Vector3 target, bool enemyFire = false)
     {
         if(isFiring)UpdateAttack(time, target);
     }
