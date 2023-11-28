@@ -20,8 +20,9 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        OnDamage();
         currentHealth -= damage;
+        OnDamage();
+
         if (currentHealth <= 0)
         {
             Die();

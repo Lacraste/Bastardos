@@ -13,9 +13,8 @@ public class MeleeWeapon : Weapon
     {
     }
 
-    public override void StartAttack(Vector3 target)
+    public override void StartAttack(Vector3 target, bool enemyFire = false)
     {
-        //audioSource.PlayOneShot(RandomAudioClip(attackSFX));
         isFiring = true;
     }
 
@@ -31,7 +30,7 @@ public class MeleeWeapon : Weapon
     private void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.transform.tag == "Enemy")
+        if (collision.GetComponent<HitBox>())
         {
             collision.gameObject.GetComponent<HitBox>().OnHit(15, collision.ClosestPoint(transform.position));
             audioSource.PlayOneShot(RandomAudioClip(sfxConfig.hit));

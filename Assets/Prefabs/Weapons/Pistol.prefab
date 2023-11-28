@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7633688953516320292}
   - component: {fileID: 4467234571607991938}
   - component: {fileID: -6997499109721981512}
+  - component: {fileID: 3928678316939014220}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
-  verticalRecoil: 5
+  verticalRecoil: 20
   horizontalRecoil: {x: 5, y: 5}
   rigController: {fileID: 0}
 --- !u!82 &-6997499109721981512
@@ -229,6 +230,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &3928678316939014220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955622855449622034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.18649296, y: 0.1327545, z: 0.032196607}
+  m_Center: {x: 0.82458514, y: -0.03880185, z: -0.0013602002}
 --- !u!1 &2935410974680456339
 GameObject:
   m_ObjectHideFlags: 0

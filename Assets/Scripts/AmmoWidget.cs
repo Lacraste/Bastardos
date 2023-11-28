@@ -10,6 +10,8 @@ public class AmmoWidget : MonoBehaviour
 {
     public GameObject[] icons;
     public TextMeshProUGUI ammoText;
+    public Animator bulletAnim;
+
     public void RefreshAmmo(int actualAmmo, int holsterAmmo)
     {
         ammoText.text = $"{actualAmmo} <size=20><alpha=#50><voffset=1em>{holsterAmmo}";
@@ -22,5 +24,9 @@ public class AmmoWidget : MonoBehaviour
         }
         icons[(int)weaponsType].SetActive(true);
         ammoText.gameObject.SetActive(haveAmmo);
+    }
+    public void SetIsFiring(bool value)
+    {
+        bulletAnim.SetBool("isFiring", value);
     }
 }

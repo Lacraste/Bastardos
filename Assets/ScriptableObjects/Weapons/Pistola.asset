@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45efb09bacc69194ea5198c933ec33ab, type: 3}
   m_Name: Pistola
   m_EditorClassIdentifier: 
-  automatic: 0
-  fireRate: 1
-  bulletDamage: 0
-  bulletSpeed: 250
+  automatic: 1
+  fireRate: 0.6
+  bulletDamage: 10
+  bulletSpeed: 500
   bulletDrop: 0
   hitEffect: {fileID: 4823975424403943952, guid: 88092118c0b4e3542860d16ed0f4c5c7,
     type: 3}

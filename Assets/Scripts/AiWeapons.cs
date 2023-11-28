@@ -10,6 +10,7 @@ public class AiWeapons : MonoBehaviour
     public Transform targetObject;
     public Vector3 targetOffset;
 
+    public WeaponPickup pickupObject;
     public float inaccuracy = 0.1f;
     private void Start()
     {
@@ -23,15 +24,16 @@ public class AiWeapons : MonoBehaviour
     {
         if(targetObject && currentWeapon)
         {
-            Vector3 target = targetObject.position + targetOffset;
+            Vector3 target = targetObject.position;
             target += Random.insideUnitSphere * inaccuracy;
+            //target += Random.insideUnitSphere * inaccuracy;
             currentWeapon.UpdateWeapon(Time.deltaTime,target);
         }
     }
     public void SetFiring(bool fire)
     {
         Vector3 target = targetObject.position + targetOffset;
-        if (fire) currentWeapon.StartAttack(target);
+        if (fire) currentWeapon.StartAttack(target, true);
         else
         {
             currentWeapon.StopAttack();
@@ -52,10 +54,17 @@ public class AiWeapons : MonoBehaviour
     {
         if (currentWeapon)
         {
-            currentWeapon.transform.SetParent(null);
+            var pick = Instantiate(pickupObject,currentWeapon.transform);
+            pick.transform.localPosition = Vector3.zero;
+            pick.transform.localEulerAngles = Vector3.zero;
+            pick.transform.SetParent(null);
+            pick.GetComponent<WeaponPickup>().SetCurrentWeapon(currentWeapon);
+            Destroy(currentWeapon.gameObject);
+            /*currentWeapon.transform.SetParent(null);
             currentWeapon.gameObject.GetComponent<BoxCollider>().enabled = true;
             currentWeapon.gameObject.AddComponent<Rigidbody>();
-            currentWeapon = null;
+            currentWeapon = null;*/
+            
         }
     }
 }

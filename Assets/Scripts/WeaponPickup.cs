@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class WeaponPickup : Interectable
 {
-    public Weapon curentWeapon;
-    public Weapon[] prefabs;
+    public GameObject curentWeapon;
+    public GameObject[] prefabs;
     bool find;
     private void Start()
     {
         find = false;
-        SetCurrentWeapon();
+        SetCurrentWeapon(curentWeapon.GetComponent<Weapon>());
     }
 
     public override void Interact()
@@ -20,35 +20,37 @@ public class WeaponPickup : Interectable
         ActiveWeapon activeWeapon = player.GetComponent<ActiveWeapon>();
         if (activeWeapon)
         {
-            
-            //Destroy(prefab.gameObject);
-            Weapon newWeapon = Instantiate(curentWeapon, activeWeapon.weaponSlots[(int)curentWeapon.slot]);
+            Weapon cWeapon = curentWeapon.GetComponent<Weapon>();
+            var newWeapon = curentWeapon;
             find = false;
-            foreach (var weapon in prefabs) 
-            {
-                if (activeWeapon.GetWeapon((int)curentWeapon.slot) == weapon)
-                {
-                    curentWeapon = weapon;
-                    find = true;
-                }
-            }
+            SetCurrentWeapon(activeWeapon.GetWeapon((int)cWeapon.slot));
 
-            activeWeapon.Equip(newWeapon);
-            if (!find) Destroy(gameObject);
-            else
-            {
-                SetCurrentWeapon();
-            }
-
+            var InstanceWeapon = Instantiate(newWeapon, activeWeapon.weaponSlots[(int)cWeapon.slot]);
+            activeWeapon.Equip(InstanceWeapon.GetComponent<Weapon>());
         }
     }
-    void SetCurrentWeapon()
+    public void SetCurrentWeapon(Weapon w)
     {
-        if (GetComponent<BoxCollider>()) Destroy(GetComponent<BoxCollider>());
-        GetComponent<MeshRenderer>().materials = curentWeapon.GetComponent<MeshRenderer>().materials;
-        GetComponent<MeshFilter>().mesh = curentWeapon.GetComponent<MeshFilter>().mesh;
-
-        gameObject.AddComponent<BoxCollider>();
+        foreach (var weapon in prefabs)
+        {
+            if (w.weaponName == weapon.GetComponent<Weapon>().weaponName)
+            {
+                curentWeapon = weapon;
+                find = true;
+            }
+        }
+        if (!find) Destroy(gameObject);
+        else
+        {
+            ChangeMesh();
+        }
+    }
+    public void ChangeMesh()
+    {
+        GetComponent<MeshRenderer>().materials = curentWeapon.GetComponent<MeshRenderer>().sharedMaterials;
+        GetComponent<MeshFilter>().mesh = curentWeapon.GetComponent<MeshFilter>().sharedMesh;
+        GetComponent<BoxCollider>().size = curentWeapon.GetComponent<BoxCollider>().size;
+        GetComponent<BoxCollider>().center = curentWeapon.GetComponent<BoxCollider>().center;
     }
 
 }

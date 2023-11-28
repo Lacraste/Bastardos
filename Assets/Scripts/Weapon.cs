@@ -23,7 +23,7 @@ public abstract class Weapon:MonoBehaviour
 
     public AudioSource audioSource;
     public WeaponRecoil recoil;
-    public abstract void StartAttack(Vector3 target);
+    public abstract void StartAttack(Vector3 target, bool enemyFire = false);
     public abstract void StopAttack();
     public abstract void UpdateAttack(float time, Vector3 target);
     public abstract void UpdateWeapon(float time,Vector3 target);

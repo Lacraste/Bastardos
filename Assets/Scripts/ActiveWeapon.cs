@@ -51,6 +51,8 @@ public class ActiveWeapon : MonoBehaviour
         var weapon = GetWeapon(activeWeaponIndex);
         if (weapon != null && !isHolstered)
         {
+            ammoWidget.SetIsFiring(weapon.isFiring);
+
             weapon.UpdateWeapon(Time.deltaTime,crossHairTarget.position);
             if (_input.shoot && btPressed == false)
             {
@@ -80,6 +82,7 @@ public class ActiveWeapon : MonoBehaviour
             Destroy(weapon.gameObject);
             SetActiveWeapon(newWeapon.slot);
             rigController.Play("equip_" + newWeapon.weaponName.ToString());
+            ammoWidget.SetIconWeapon(newWeapon.weaponName, newWeapon.recoil != null);
             newWeapon.holsterAmmo = weapon.holsterAmmo;
         }
         weapon = newWeapon;
@@ -92,7 +95,6 @@ public class ActiveWeapon : MonoBehaviour
         ammoWidget.RefreshAmmo(weapon.actualAmmo, weapon.holsterAmmo);
         weapon.transform.SetParent(weaponSlots[weaponSlotIndex], false);
         weapons[weaponSlotIndex] = weapon;
-       
     }
     void SetActiveWeapon(WeaponSlot weaponSlotIndex)
     {
@@ -157,7 +159,6 @@ public class ActiveWeapon : MonoBehaviour
             return null;
         }
     }
-
     public void AddAmmo(int ammo)
     {
         var weapon = weapons[0];

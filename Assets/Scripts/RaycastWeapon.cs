@@ -22,7 +22,7 @@ public class RaycastWeapon : Weapon
     bool isReloading = false;
 
     public ParticleSystem shotFlash;
-
+    public ParticleSystem onomatopeia;
 
     public Transform raycastOrigin;
 
@@ -66,7 +66,7 @@ public class RaycastWeapon : Weapon
 
         return bullet;
     }
-    public override void StartAttack(Vector3 target)
+    public override void StartAttack(Vector3 target, bool enemyFire = false)
     {
         isFiring = true;
         FireBullet(target);
@@ -151,11 +151,12 @@ public class RaycastWeapon : Weapon
             }
         }
     }
-    private void FireBullet(Vector3 target)
+    private void FireBullet(Vector3 target, bool enemyFire = false)
     {if (actualAmmo <= 0 || isReloading) return;
         actualAmmo--;
         shotFlash.Play();
-
+        Debug.Log(enemyFire);
+        if(enemyFire) onomatopeia.Play();
         audioSource.PlayOneShot(RandomAudioClip(sfxConfig.fire));
         Vector3 velocity = (target - raycastOrigin.position).normalized * weapon.bulletSpeed;
         var bullet = CreateBullet(raycastOrigin.position, velocity);
