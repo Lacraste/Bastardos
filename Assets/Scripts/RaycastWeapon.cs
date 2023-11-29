@@ -155,7 +155,6 @@ public class RaycastWeapon : Weapon
     {if (actualAmmo <= 0 || isReloading) return;
         actualAmmo--;
         shotFlash.Play();
-        Debug.Log(enemyFire);
         if(enemyFire) onomatopeia.Play();
         audioSource.PlayOneShot(RandomAudioClip(sfxConfig.fire));
         Vector3 velocity = (target - raycastOrigin.position).normalized * weapon.bulletSpeed;
