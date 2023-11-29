@@ -19,7 +19,7 @@ public class AiReloadWeapon : MonoBehaviour
         if (weapon == null) return;
         if (weapon.actualAmmo == 0)
         {
-            Debug.Log(weapon.actualAmmo);
+            Debug.Log(gameObject.name);
             ReloadAnimation();
         }
     }
@@ -69,9 +69,12 @@ public class AiReloadWeapon : MonoBehaviour
     void AttachMagazine()
     {
         Destroy(magazineHand);
-        weapon.magazine.SetActive(true);
-        weapon.SetIsReloading(false);
-        rigController.ResetTrigger("reload");
-        weapon.Reload();
+        if(weapon)
+        {
+            weapon.magazine.SetActive(true);
+            weapon.SetIsReloading(false);
+            rigController.ResetTrigger("reload");
+            weapon.Reload();
+        }
     }
 }
