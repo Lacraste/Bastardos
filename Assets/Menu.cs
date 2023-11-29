@@ -8,9 +8,19 @@ public class Menu : MonoBehaviour
    public void Play()
     {
         SceneManager.LoadScene("New Scene");
+        PlaySFX();
     }
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
+        PlaySFX();
+    }
+    public void Quit()
+    {PlaySFX();
+        Application.Quit();
+    }
+    public void PlaySFX()
+    {
+        GameObject.Find("AudioBts").GetComponent<ButtonAudio>().PlayBtSFX();
     }
 }

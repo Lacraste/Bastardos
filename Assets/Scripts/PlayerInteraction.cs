@@ -26,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 rayOrigin = myCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.2f));
-        if (Physics.Raycast(rayOrigin, myCam.transform.forward, out hit, 1.5f))
+        if (Physics.Raycast(rayOrigin, myCam.transform.forward, out hit, 2f))
         {
             Interectable interectable = hit.collider.GetComponent<Interectable>();
             if (interectable != null)

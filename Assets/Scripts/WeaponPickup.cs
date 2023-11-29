@@ -16,6 +16,7 @@ public class WeaponPickup : Interectable
 
     public override void Interact()
     {
+        base.Interact();
         var player = GameObject.FindGameObjectWithTag("Player");
         ActiveWeapon activeWeapon = player.GetComponent<ActiveWeapon>();
         if (activeWeapon)

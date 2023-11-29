@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistola
   m_EditorClassIdentifier: 
   automatic: 1
-  fireRate: 0.6
+  fireRate: 1.5
   bulletDamage: 10
   bulletSpeed: 500
   bulletDrop: 0

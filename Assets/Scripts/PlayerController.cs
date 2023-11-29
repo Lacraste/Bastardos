@@ -71,6 +71,10 @@ namespace StarterAssets
 		bool inAir;
 
 		float speedMultiplier;
+
+		public bool pause { get;
+			set;
+		}
         private bool IsCurrentDeviceMouse
 		{
 			get
@@ -101,12 +105,15 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
+			if (pause) return;
             CameraRotation();
         }
 
         private void FixedUpdate()
         {
-			JumpAndGravity();
+            if (pause) return;
+
+            JumpAndGravity();
 			GroundedCheck();
 			Move();
 		}
@@ -115,14 +122,6 @@ namespace StarterAssets
 		{
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers);
-			if (Grounded)
-			{
-				if (inAir)
-				{
-					inAir = false;
-                    anim.ResetTrigger("Jump");
-                }
-            }
 		}
 		public void SetLookOffset(Vector2 value) 
 		{
@@ -283,12 +282,11 @@ namespace StarterAssets
 				if (_input.jump && inAir == false)
 				{
 					anim.SetTrigger("Jump");
-					inAir = true;
-					rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-				}
+                    rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                }
 
-				// Aplica multiplicadores de queda e salto baixo
-				if (rb.velocity.y < 0)
+                // Aplica multiplicadores de queda e salto baixo
+                if (rb.velocity.y < 0)
 				{
 					rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 				}
@@ -297,10 +295,21 @@ namespace StarterAssets
 					rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 				}
 			}
-			anim.SetBool("Air",!Grounded);
+			if (!Grounded)
+			{
+				inAir = true;
+			}
+			if(inAir && Grounded)
+			{
+				inAir = false;
+                anim.ResetTrigger("Jump");
+            }
+            anim.SetBool("Air",!Grounded);
 		}
-
-		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+		public void JumpEvent()
+		{
+        }
+        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
 			if (lfAngle > 360f) lfAngle -= 360f;

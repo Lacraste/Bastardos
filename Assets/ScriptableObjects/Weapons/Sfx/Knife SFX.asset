@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0e93cb8e154a74db0323d857d71202, type: 3}
   m_Name: Knife SFX
   m_EditorClassIdentifier: 
-  fire: []
+  fire:
+  - {fileID: 8300000, guid: 2a5611b227d77984f80f5975fb3a0459, type: 3}
+  - {fileID: 8300000, guid: 272a7148c5e7cd544a2410f547790c0d, type: 3}
+  - {fileID: 8300000, guid: eb93b2daedf23cf47b9eb4e7deb62fb5, type: 3}
   hit:
-  - {fileID: 8300000, guid: b380e041417a482419887c828d70fe25, type: 3}
+  - {fileID: 8300000, guid: 18c471ce76be2ce43a9dd9fb2436cf51, type: 3}
+  - {fileID: 8300000, guid: 29e1c7eb4bd95cd40b6d0ca1fe02e39c, type: 3}
+  - {fileID: 8300000, guid: 214271bbb8165ba4d9719b9c3dd280bd, type: 3}
+  - {fileID: 8300000, guid: 3137e76a7adb09641946a65c07907038, type: 3}
   reload: {fileID: 0}
   equip: {fileID: 8300000, guid: 8d72ad4541bf14a4499c84382b26df7d, type: 3}

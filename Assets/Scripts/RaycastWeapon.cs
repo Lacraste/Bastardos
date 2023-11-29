@@ -41,6 +41,7 @@ public class RaycastWeapon : Weapon
 
     public LayerMask layermask;
 
+    private int soundHitCount;
     private void Awake()
     {
         recoil = GetComponent<WeaponRecoil>();
@@ -69,11 +70,10 @@ public class RaycastWeapon : Weapon
     public override void StartAttack(Vector3 target, bool enemyFire = false)
     {
         isFiring = true;
-        FireBullet(target, enemyFire);
     }
     public override void UpdateAttack(float deltatime, Vector3 target, bool enemyFire = false)
     {
-        if (!weapon.automatic) return;
+        //if (!weapon.automatic) return;
         accumulatedTime += deltatime;
         float fireInterval = 1.0f / weapon.fireRate;
         while (accumulatedTime >= 0.0f) 
@@ -114,7 +114,6 @@ public class RaycastWeapon : Weapon
         float distance = direction.magnitude;
         ray.origin = start;
         ray.direction = direction;
-        bullet.tracer.transform.position = end;
         if (Physics.Raycast(ray, out hit, distance, layermask))
         {
           
@@ -122,6 +121,7 @@ public class RaycastWeapon : Weapon
             bullet.time = maxLifeTime;
 
             end = hit.point;
+
             if (hit.transform.tag == "Target")
             {
                 hit.transform.GetComponentInParent<BonecoAlvo>().Down();
@@ -135,21 +135,26 @@ public class RaycastWeapon : Weapon
             var hitBox = hit.collider.GetComponent<HitBox>();
             if (hitBox)
             {
-                if (hitBox.health.GetHealth() >= 0)
+                if (hitBox.health.GetHealth() > 0)
                 {
                     hitBox.OnHit(this, ray.direction, hit.point, hit.normal);
-                    audioSource.PlayOneShot(RandomAudioClip(sfxConfig.hit));
+                    if (hit.collider.CompareTag("Player")) return;
+                    audioSource.PlayOneShot(sfxConfig.hit[soundHitCount]);
+                    if(soundHitCount < sfxConfig.hit.Length -1) soundHitCount++;
                     hitMarker.Hit();
                 }
             }
             else
             {
+                soundHitCount = 0;
                 bullet.hitEffect = Instantiate(weapon.hitEffect);
                 bullet.hitEffect.transform.forward = hit.normal;
                 bullet.hitEffect.transform.position = hit.point;
                 bullet.hitEffect.Play();
             }
         }
+        bullet.tracer.transform.position = end;
+
     }
     private void FireBullet(Vector3 target, bool enemyFire = false)
     {if (actualAmmo <= 0 || isReloading) return;
@@ -167,6 +172,7 @@ public class RaycastWeapon : Weapon
     public override void StopAttack ()
     {
         isFiring = false;
+        accumulatedTime = 0;
     }
     public override void AddAmmo(int ammo)
     {

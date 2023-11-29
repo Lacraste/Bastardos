@@ -17,7 +17,7 @@ public class AiReloadWeapon : MonoBehaviour
     private void Update()
     {
         if (weapon == null) return;
-        if (weapon.actualAmmo == 0)
+        if (weapon.actualAmmo == 0 && !weapon.GetIsReloading())
         {
             Debug.Log(gameObject.name);
             ReloadAnimation();

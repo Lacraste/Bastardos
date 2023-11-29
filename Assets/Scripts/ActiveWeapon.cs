@@ -28,6 +28,8 @@ public class ActiveWeapon : MonoBehaviour
     bool isHolstered = false;
     public AmmoWidget ammoWidget;
 
+    private PlayerController playerController;
+
     void Start()
     {/*
         anim = GetComponent<Animator>();
@@ -38,6 +40,7 @@ public class ActiveWeapon : MonoBehaviour
             foreach(Weapon existingWeapon in existingWeapons) Equip(existingWeapon);
         }
         StartCoroutine(ActivateWeapon((int)WeaponSlot.Primary));
+        playerController = GetComponent<PlayerController>();
         //SetActiveWeapon((int)WeaponSlot.Primary);
     }
     public Weapon GetWeapon(int index)
@@ -48,6 +51,8 @@ public class ActiveWeapon : MonoBehaviour
 
     void Update()
     {
+        if (playerController.pause) return;
+
         var weapon = GetWeapon(activeWeaponIndex);
         if (weapon != null && !isHolstered)
         {

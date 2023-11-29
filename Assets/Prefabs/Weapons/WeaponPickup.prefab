@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329c246a522d5cc4186a64bba2947b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 80595dbbb3d38994d96dacbd07c673a5, type: 3}
   curentWeapon: {fileID: 955622855449622034, guid: 6080ac6e8f4e2824797ec09e2965bd4a,
     type: 3}
   prefabs:
