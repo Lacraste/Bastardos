@@ -19940,6 +19940,11 @@ PrefabInstance:
       propertyPath: recoil
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7633688953516320292, guid: 6080ac6e8f4e2824797ec09e2965bd4a,
+        type: 3}
+      propertyPath: actualAmmo
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4467234571607991938, guid: 6080ac6e8f4e2824797ec09e2965bd4a, type: 3}
     m_RemovedGameObjects: []
