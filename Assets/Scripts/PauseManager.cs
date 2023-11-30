@@ -19,10 +19,12 @@ public class PauseManager : MonoBehaviour
     public bool playerDead;
     StarterAssetsInputs st;
 
+    public Animator animFindKey;
     public void ActivateKey()
     {
         key.SetActive(true);
         hasKey = true;
+        animFindKey.gameObject.SetActive(false);
     }
     private void Start()
     {
@@ -79,4 +81,9 @@ public class PauseManager : MonoBehaviour
     {
         interactionButton.SetActive(value);
     }
+    public void FindKey()
+    {
+        animFindKey.Play("PopUP");
+    }
+
 }

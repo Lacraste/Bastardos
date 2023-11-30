@@ -209,7 +209,7 @@ public class RaycastWeapon : Weapon
 
     public override void equipSound()
     {
-
+        audioSource.PlayOneShot(sfxConfig.equip);
     }
     
     public override void UpdateWeapon(float time, Vector3 target, bool enemyFire = false)

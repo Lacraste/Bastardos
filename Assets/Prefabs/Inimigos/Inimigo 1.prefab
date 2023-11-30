@@ -16318,7 +16318,7 @@ MonoBehaviour:
   targetOffset: {x: 0, y: 1.2, z: 0}
   pickupObject: {fileID: 3402517016679627493, guid: 5f4472dab01e14b49aad9e6b1758b629,
     type: 3}
-  inaccuracy: 0.5
+  inaccuracy: 1
 --- !u!114 &1871644589766256404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16351,13 +16351,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b896bdfbc69f249a80695b066c97a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 25
   currentHealth: 0
   deathSounds:
   - {fileID: 8300000, guid: c6de0783e4a491f4eb762f9fe8b16f55, type: 3}
   - {fileID: 8300000, guid: 6577fbbd1d0b68f46bdfe1095b36f274, type: 3}
   - {fileID: 8300000, guid: 1c20521a6d030a44a9cbb6b766c32991, type: 3}
   - {fileID: 8300000, guid: 8ede579222591a84d85d8b30ea84a077, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &4194035911149925897
 MonoBehaviour:
   m_ObjectHideFlags: 0

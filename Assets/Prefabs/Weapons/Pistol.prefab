@@ -107,7 +107,7 @@ MonoBehaviour:
   actualAmmo: 12
   holsterAmmo: 24
   isFiring: 0
-  sfxConfig: {fileID: 11400000, guid: f3c3256e71c1af84e8f87959359bf78f, type: 2}
+  sfxConfig: {fileID: 11400000, guid: 9c350fdcd2967854f9ad05842c00af20, type: 2}
   weaponName: 3
   slot: 0
   audioSource: {fileID: -6997499109721981512}

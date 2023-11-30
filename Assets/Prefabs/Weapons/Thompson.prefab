@@ -9712,6 +9712,7 @@ MonoBehaviour:
   recoil: {fileID: 2711891389564147207}
   weapon: {fileID: 11400000, guid: 9ee658b610cee7344aa90086e7e4e61f, type: 2}
   shotFlash: {fileID: 2112743038653512448}
+  onomatopeia: {fileID: 0}
   raycastOrigin: {fileID: 1922872832289752376}
   magazine: {fileID: 6295605633477060438}
   layermask:

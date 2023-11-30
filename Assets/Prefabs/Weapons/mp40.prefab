@@ -4920,16 +4920,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9141d6fbae573645a3a2063df32c1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAmmo: 30
+  maxAmmo: 20
   actualAmmo: 30
   holsterAmmo: 0
   isFiring: 0
-  sfxConfig: {fileID: 11400000, guid: f3c3256e71c1af84e8f87959359bf78f, type: 2}
+  sfxConfig: {fileID: 11400000, guid: 905bacca4523b254faa86a674e1a44da, type: 2}
   weaponName: 2
   slot: 0
   audioSource: {fileID: 0}
   recoil: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 9ee658b610cee7344aa90086e7e4e61f, type: 2}
+  weapon: {fileID: 11400000, guid: e9c55ae3a9c83914d955575d8062e439, type: 2}
   shotFlash: {fileID: 5673607785156814742}
   onomatopeia: {fileID: 8325933422319158100}
   raycastOrigin: {fileID: 4757681586766679699}

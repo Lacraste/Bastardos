@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0e93cb8e154a74db0323d857d71202, type: 3}
+  m_Name: Mp40SFX
+  m_EditorClassIdentifier: 
+  fire:
+  - {fileID: 8300000, guid: fe3806e4fa31c1c478e05af9b2adce0b, type: 3}
+  - {fileID: 8300000, guid: 0077062e3cbe5f84d9e44ca7789cdb9e, type: 3}
+  hit:
+  - {fileID: 8300000, guid: cf1ed232d8ab36c4ead1c089cff5b778, type: 3}
+  - {fileID: 8300000, guid: 5c90b32650ea80b4d84ba5367c29bb10, type: 3}
+  - {fileID: 8300000, guid: 585c6b560eb373c48af891ae44c100ea, type: 3}
+  - {fileID: 8300000, guid: fcebf4d22d1bfb5439f903780991df0d, type: 3}
+  - {fileID: 8300000, guid: d3e82db32cdbfd54a9e35d68c8c45850, type: 3}
+  reload: {fileID: 8300000, guid: 2aea69098c3e89d42bf767b323539281, type: 3}
+  equip: {fileID: 8300000, guid: 13b1530393aead342be5156eb0736b56, type: 3}
