@@ -18,6 +18,7 @@ public class GlobalAudio : MonoBehaviour
     public void ChangeMusic(AudioClip clip)
     {
         musicSource.clip = clip;
+        musicSource.Play();
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -74,6 +75,11 @@ public class PauseManager : MonoBehaviour
     }
     public void GameOver()
     {
+        st.SetCursorState(false);
+        st.cursorLocked = false;
+        st.look = new Vector2(0, 0);
+        st.cursorInputForLook = false;
+
         playerDead = true;
         gameOverObject.SetActive(true);
     }
@@ -84,6 +90,13 @@ public class PauseManager : MonoBehaviour
     public void FindKey()
     {
         animFindKey.Play("PopUP");
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        st.SetCursorState(true);
+        st.cursorLocked = true;
+        st.cursorInputForLook = true;
     }
 
 }
