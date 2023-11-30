@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +17,19 @@ public class PauseManager : MonoBehaviour
     public UnityEvent onUnpause;
 
     public bool playerDead;
+    StarterAssetsInputs st;
+
     public void ActivateKey()
     {
         key.SetActive(true);
         hasKey = true;
+    }
+    private void Start()
+    {
+        st = FindObjectOfType<StarterAssetsInputs>();
+        st.SetCursorState(true);
+        st.cursorLocked = true;
+        st.cursorInputForLook = true;
     }
     // Update is called once per frame
     void Update()
@@ -43,6 +53,11 @@ public class PauseManager : MonoBehaviour
         paused = true;
         pauseObject.SetActive(true);
         onPause.Invoke();
+
+        st.SetCursorState(false);
+        st.cursorLocked = false;
+        st.look = new Vector2(0, 0);
+        st.cursorInputForLook = false;
     }
     public void Unpause()
     {
@@ -50,6 +65,10 @@ public class PauseManager : MonoBehaviour
         paused = false;
         pauseObject.SetActive(false);
         onUnpause.Invoke();
+
+        st.SetCursorState(true);
+        st.cursorLocked = true;
+        st.cursorInputForLook = true;
     }
     public void GameOver()
     {
